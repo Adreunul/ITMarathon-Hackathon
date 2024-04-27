@@ -15,11 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Coins\" />
     <Folder Include="DTOs\Logs\" />
-    <Folder Include="Interfaces\Coins\" />
     <Folder Include="Interfaces\Logs\" />
-    <Folder Include="Repositories\Coins\" />
     <Folder Include="Repositories\Logs\" />
   </ItemGroup>
 
