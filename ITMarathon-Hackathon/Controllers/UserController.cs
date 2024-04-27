@@ -7,6 +7,7 @@ namespace ITMarathon_Hackathon.Controllers
     public class UserController : ControllerBase
     {
         private readonly ILoginRepository _loginRepository;
+        private readonly ILogOutRepository _logOutRepository;
         private readonly IResetPasswordRepository _resetPasswordRepository;
         private readonly IRegisterRepository _registerRepository;
         private readonly IAddUserFundsRepository _addUserFundsRepository;
@@ -18,7 +19,8 @@ namespace ITMarathon_Hackathon.Controllers
             IResetPasswordRepository resetPasswordRepository,
             IAddUserFundsRepository addUserFundsRepository,
             IGetUserSoldRepository getUserSoldRepository,
-            IGetUserSoldFromCoinsRepository getUserSoldFromCoinsRepository)
+            IGetUserSoldFromCoinsRepository getUserSoldFromCoinsRepository,
+            ILogOutRepository logOutRepository)
         {
             _loginRepository = loginRepository;
             _registerRepository = registerRepository;
@@ -26,6 +28,7 @@ namespace ITMarathon_Hackathon.Controllers
             _addUserFundsRepository = addUserFundsRepository;
             _getUserSoldRepository = getUserSoldRepository;
             _getUserSoldFromCoinsRepository = getUserSoldFromCoinsRepository;
+            _logOutRepository = logOutRepository;
         }
 
         [HttpPost]
@@ -33,6 +36,17 @@ namespace ITMarathon_Hackathon.Controllers
         public async Task<IActionResult> LoginUserAsync([FromBody] LoginDTO loginDTO)
         {
             var userId = await _loginRepository.LoginAsyncRepo(loginDTO);
+            if (userId > 0)
+                return Ok(userId);
+            else
+                return BadRequest("Login failed.");
+        }
+
+        [HttpPost]
+        [Route("LogOutUser")]
+        public async Task<IActionResult> LogOutUserAsync(int idUser)
+        {
+            var userId = await _logOutRepository.LogOutAsyncRepo(idUser);
             if (userId > 0)
                 return Ok(userId);
             else
