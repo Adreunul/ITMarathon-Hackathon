@@ -7,7 +7,7 @@ namespace ITMarathon_Hackathon.Controllers
     public class CoinController : ControllerBase
     {
         private readonly IUserCoinsRepository _userCoinsRepository;
-        private readonly IGetCoinsRepository _getCoinsRepository
+        private readonly IGetCoinsRepository _getCoinsRepository;
 
         public CoinController(IUserCoinsRepository userCoinsRepository, IGetCoinsRepository getCoinsRepository)
         {
