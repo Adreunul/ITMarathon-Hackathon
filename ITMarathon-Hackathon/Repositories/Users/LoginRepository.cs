@@ -1,11 +1,12 @@
-﻿using ITMarathon_Hackathon.DTOs;
-using ITMarathon_Hackathon.Interfaces;
+﻿using ITMarathon_Hackathon.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
 using Dapper;
 using System.Data;
+using ITMarathon_Hackathon.Interfaces.Users;
+using ITMarathon_Hackathon.DTOs.Users;
 
-namespace ITMarathon_Hackathon.Repositories
+namespace ITMarathon_Hackathon.Repositories.Users
 {
     public class LoginRepository : ILoginRepository
     {
@@ -18,10 +19,10 @@ namespace ITMarathon_Hackathon.Repositories
 
         public async Task<int> LoginAsyncRepo(LoginDTO loginDTO)
         {
-            var parameters = new DynamicParameters(); 
+            var parameters = new DynamicParameters();
 
             parameters.Add("@username", loginDTO.username);
-            
+
             string hashedPassword = HashPassword(loginDTO.password);
             parameters.Add("@password", hashedPassword);
 
@@ -48,5 +49,5 @@ namespace ITMarathon_Hackathon.Repositories
         }
     }
 
-    
+
 }

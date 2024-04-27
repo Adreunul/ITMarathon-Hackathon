@@ -15,22 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Coins\" />
-    <Folder Include="Controllers\Logs\" />
-    <Folder Include="Controllers\Transactions\" />
-    <Folder Include="Controllers\Users\" />
     <Folder Include="DTOs\Coins\" />
     <Folder Include="DTOs\Logs\" />
     <Folder Include="DTOs\Transactions\" />
-    <Folder Include="DTOs\Users\" />
     <Folder Include="Interfaces\Coins\" />
     <Folder Include="Interfaces\Logs\" />
     <Folder Include="Interfaces\Transactions\" />
-    <Folder Include="Interfaces\Users\" />
     <Folder Include="Repositories\Coins\" />
     <Folder Include="Repositories\Logs\" />
     <Folder Include="Repositories\Transactions\" />
-    <Folder Include="Repositories\Users\" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
-﻿using ITMarathon_Hackathon.DTOs;
+﻿using ITMarathon_Hackathon.DTOs.Users;
 
-namespace ITMarathon_Hackathon.Interfaces
+namespace ITMarathon_Hackathon.Interfaces.Users
 {
     public interface ILoginRepository
     {

@@ -1,5 +1,5 @@
-﻿using ITMarathon_Hackathon.DTOs;
-using ITMarathon_Hackathon.Interfaces;
+﻿using ITMarathon_Hackathon.DTOs.Users;
+using ITMarathon_Hackathon.Interfaces.Users;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ITMarathon_Hackathon.Controllers

@@ -1,6 +1,7 @@
 ﻿using ITMarathon_Hackathon.Interfaces;
 using ITMarathon_Hackathon.Infrastructure;
-using ITMarathon_Hackathon.Repositories;
+using ITMarathon_Hackathon.Interfaces.Users;
+using ITMarathon_Hackathon.Repositories.Users;
 
 namespace ITMarathon_Hackathon
 {

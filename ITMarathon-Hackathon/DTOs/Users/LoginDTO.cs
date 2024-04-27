@@ -1,4 +1,4 @@
-﻿namespace ITMarathon_Hackathon.DTOs
+﻿namespace ITMarathon_Hackathon.DTOs.Users
 {
     public class LoginDTO
     {
