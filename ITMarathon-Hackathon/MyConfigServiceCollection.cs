@@ -21,6 +21,8 @@ namespace ITMarathon_Hackathon
             services.AddScoped<IResetPasswordRepository, ResetPasswordRepository>();
             services.AddScoped<IRegisterRepository, RegisterRepository>();
             services.AddScoped<IAddUserFundsRepository, AddUserFundsRepository>();
+            services.AddScoped<IGetUserSoldRepository, GetUserSoldRepository>();
+            services.AddScoped<IGetUserSoldFromCoinsRepository, GetUserSoldFromCoinsRepository>();
 
             //TRANSACTION
             services.AddScoped<IMakeTransactionRepository, MakeTransactionRepository>();

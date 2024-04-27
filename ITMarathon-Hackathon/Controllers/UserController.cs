@@ -10,16 +10,22 @@ namespace ITMarathon_Hackathon.Controllers
         private readonly IResetPasswordRepository _resetPasswordRepository;
         private readonly IRegisterRepository _registerRepository;
         private readonly IAddUserFundsRepository _addUserFundsRepository;
+        private readonly IGetUserSoldRepository _getUserSoldRepository;
+        private readonly IGetUserSoldFromCoinsRepository _getUserSoldFromCoinsRepository;
 
         public UserController(ILoginRepository loginRepository,
             IRegisterRepository registerRepository,
             IResetPasswordRepository resetPasswordRepository,
-            IAddUserFundsRepository addUserFundsRepository)
+            IAddUserFundsRepository addUserFundsRepository,
+            IGetUserSoldRepository getUserSoldRepository,
+            IGetUserSoldFromCoinsRepository getUserSoldFromCoinsRepository)
         {
             _loginRepository = loginRepository;
             _registerRepository = registerRepository;
             _resetPasswordRepository = resetPasswordRepository;
             _addUserFundsRepository = addUserFundsRepository;
+            _getUserSoldRepository = getUserSoldRepository;
+            _getUserSoldFromCoinsRepository = getUserSoldFromCoinsRepository;
         }
 
         [HttpPost]
@@ -69,6 +75,30 @@ namespace ITMarathon_Hackathon.Controllers
                 return Ok(result);
             else
                 return BadRequest("Adding funds failed");
+        }
+
+        [HttpGet]
+        [Route("GetUserSold")]
+        public async Task<IActionResult> GetUserSoldAsync(int idUser)
+        {
+            var sold = await _getUserSoldRepository.GetUserSoldAsyncRepo(idUser);
+
+            if (sold >= 0)
+                return Ok(sold);
+            else
+                return BadRequest("Getting sold failed");
+        }
+
+        [HttpGet]
+        [Route("GetUserSoldFromCoins")]
+        public async Task<IActionResult> GetUserSoldFromCoinsAsync(int idUser)
+        {
+            var sold = await _getUserSoldFromCoinsRepository.GetUserSoldFromCoinsAsyncRepo(idUser);
+
+            if (sold >= 0)
+                return Ok(sold);
+            else
+                return BadRequest("Getting sold failed");
         }
     }
 }
