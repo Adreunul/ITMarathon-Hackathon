@@ -15,6 +15,7 @@ namespace ITMarathon_Hackathon
 
             //USER
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IResetPasswordRepository, ResetPasswordRepository>();
             services.AddScoped<IRegisterRepository, RegisterRepository>();
 
             //TRANSACTION
