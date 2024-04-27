@@ -11,7 +11,7 @@ namespace ITMarathon_Hackathon.Repositories.Users
         public GetUsersRepository(IDbConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
-        }
+        }//
         public async Task<IEnumerable<GetUsersDTO>> GetUsersAsyncRepo()
         {
             using (var connection = _connectionFactory.ConnectToDataBase())
