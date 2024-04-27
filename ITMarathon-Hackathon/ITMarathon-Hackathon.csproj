@@ -17,13 +17,10 @@
   <ItemGroup>
     <Folder Include="DTOs\Coins\" />
     <Folder Include="DTOs\Logs\" />
-    <Folder Include="DTOs\Transactions\" />
     <Folder Include="Interfaces\Coins\" />
     <Folder Include="Interfaces\Logs\" />
-    <Folder Include="Interfaces\Transactions\" />
     <Folder Include="Repositories\Coins\" />
     <Folder Include="Repositories\Logs\" />
-    <Folder Include="Repositories\Transactions\" />
   </ItemGroup>
 
 </Project>

@@ -25,7 +25,9 @@ namespace ITMarathon_Hackathon.Repositories.Users
             string hashedPassword = HashPassword(registerDTO.password);
             parameters.Add("@password", hashedPassword);
 
-            parameters.Add("@safeword", registerDTO.safeword);
+            string hashedSafeword = HashPassword(registerDTO.safeword);
+            parameters.Add("@safeword", hashedSafeword);
+
             parameters.Add("@firstname", registerDTO.firstname);
             parameters.Add("@lastname", registerDTO.lastname);
             parameters.Add("@sold", registerDTO.sold);
