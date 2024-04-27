@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public double Quantity { get; set; }
         public string Icon { get; set; }
-        public double Amount { get; set; }
+        public double Amount { get; set; }  
     }
 }
