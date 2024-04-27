@@ -7,6 +7,8 @@ using ITMarathon_Hackathon.Interfaces.Transactions;
 using ITMarathon_Hackathon.Interfaces.Coins;
 using ITMarathon_Hackathon.Repositories.Coins;
 using ITMarathon_Hackathon.Interfaces.Coins;
+using ITMarathon_Hackathon.Interfaces.Logs;
+using ITMarathon_Hackathon.Repositories.Logs;
 
 namespace ITMarathon_Hackathon
 {
@@ -32,6 +34,9 @@ namespace ITMarathon_Hackathon
             //COIN
             services.AddScoped<IUserCoinsRepository, UserCoinsRepository>();
             services.AddScoped<IGetCoinsRepository, GetCoinsRepository>();
+
+            //LOGS
+            services.AddScoped<IGetLogsRepository, GetLogsRepository>();
 
             return services;
         }

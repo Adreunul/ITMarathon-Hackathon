@@ -14,10 +14,4 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\Logs\" />
-    <Folder Include="Interfaces\Logs\" />
-    <Folder Include="Repositories\Logs\" />
-  </ItemGroup>
-
 </Project>
