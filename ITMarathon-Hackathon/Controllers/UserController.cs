@@ -8,10 +8,14 @@ namespace ITMarathon_Hackathon.Controllers
     {
         private readonly ILoginRepository _loginRepository;
         private readonly IResetPasswordRepository _resetPasswordRepository;
+        private readonly IRegisterRepository _registerRepository;
         
-        public UserController(ILoginRepository loginRepository, IResetPasswordRepository resetPasswordRepository)
+        public UserController(ILoginRepository loginRepository,
+            IRegisterRepository registerRepository,
+            IResetPasswordRepository resetPasswordRepository)
         {
             _loginRepository = loginRepository;
+            _registerRepository = registerRepository;
             _resetPasswordRepository = resetPasswordRepository;
         }
 
@@ -25,6 +29,19 @@ namespace ITMarathon_Hackathon.Controllers
             else
                 return BadRequest("Login failed.");
         }
+
+        [HttpPost]
+        [Route("RegisterUser")]
+        public async Task<IActionResult> RegisterUserAsync([FromBody] RegisterDTO registerDTO)
+        {
+            var userId = await _registerRepository.RegisterUserAsyncRepo(registerDTO);
+
+            if (userId > 0)
+                return Ok(userId);
+            else
+                return BadRequest("Registration failed.");
+        }
+       
 
         [HttpPatch]
         [Route("ResetPassword")]

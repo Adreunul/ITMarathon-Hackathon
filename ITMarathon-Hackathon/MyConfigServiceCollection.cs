@@ -2,6 +2,8 @@
 using ITMarathon_Hackathon.Infrastructure;
 using ITMarathon_Hackathon.Interfaces.Users;
 using ITMarathon_Hackathon.Repositories.Users;
+using ITMarathon_Hackathon.Repositories.Transactions;
+using ITMarathon_Hackathon.Interfaces.Transactions;
 
 namespace ITMarathon_Hackathon
 {
@@ -10,8 +12,15 @@ namespace ITMarathon_Hackathon
         public static IServiceCollection AddMyDependencyGroup(this IServiceCollection services)
         {
             services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
+
+            //USER
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IResetPasswordRepository, ResetPasswordRepository>();
+            services.AddScoped<IRegisterRepository, RegisterRepository>();
+
+            //TRANSACTION
+            services.AddScoped<IMakeTransactionRepository, MakeTransactionRepository>();
+
             return services;
         }
     }
