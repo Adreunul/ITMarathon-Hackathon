@@ -7,10 +7,13 @@ namespace ITMarathon_Hackathon.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly IMakeTransactionRepository _makeTransactionRepository;
+        private readonly IGetTransactionCommissionRepository _getTransactionCommissionRepository;
 
-        public TransactionController(IMakeTransactionRepository makeTransactionRepository)
+        public TransactionController(IMakeTransactionRepository makeTransactionRepository,
+            IGetTransactionCommissionRepository getTransactionCommissionRepository)
         {
             _makeTransactionRepository = makeTransactionRepository;
+            _getTransactionCommissionRepository = getTransactionCommissionRepository;
         }
 
         [HttpPost]
@@ -23,6 +26,18 @@ namespace ITMarathon_Hackathon.Controllers
                 return Ok(transactionId);
             else
                 return BadRequest("Transaction failed.");
+        }
+
+        [HttpGet]
+        [Route("GetTransactionCommission")]
+        public async Task<IActionResult> GetTransactionCommissionAsyncRepo(float transactionValue)
+        {
+            var result = await _getTransactionCommissionRepository.GetTransactionCommissionAsyncRepo(transactionValue);
+
+            if (result > 0)
+                return Ok(result);
+            else
+                return BadRequest("Transaction commission calculation failed");
         }
     }
 }

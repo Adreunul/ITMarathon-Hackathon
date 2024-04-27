@@ -19,6 +19,7 @@ namespace ITMarathon_Hackathon
 
             //TRANSACTION
             services.AddScoped<IMakeTransactionRepository, MakeTransactionRepository>();
+            services.AddScoped<IGetTransactionCommissionRepository, GetTransactionCommissionRepository>();
 
             return services;
         }
