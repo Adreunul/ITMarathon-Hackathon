@@ -17,6 +17,7 @@ namespace ITMarathon_Hackathon.Repositories.Users
             using (var connection = _connectionFactory.ConnectToDataBase())
             {
                 var result = await connection.QueryAsync<GetUsersDTO>("GetUsers", commandType: CommandType.StoredProcedure);
+                return result;
             }
         }
     }
