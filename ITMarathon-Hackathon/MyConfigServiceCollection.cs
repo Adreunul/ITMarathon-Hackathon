@@ -11,6 +11,7 @@ namespace ITMarathon_Hackathon
         {
             services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IResetPasswordRepository, ResetPasswordRepository>();
             return services;
         }
     }
