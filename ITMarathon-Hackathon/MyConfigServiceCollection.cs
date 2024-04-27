@@ -10,7 +10,11 @@ namespace ITMarathon_Hackathon
         public static IServiceCollection AddMyDependencyGroup(this IServiceCollection services)
         {
             services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
+
+            //USER
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IRegisterRepository, RegisterRepository>();
+
             return services;
         }
     }
