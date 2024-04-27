@@ -6,6 +6,7 @@ using ITMarathon_Hackathon.Repositories.Transactions;
 using ITMarathon_Hackathon.Interfaces.Transactions;
 using ITMarathon_Hackathon.Interfaces.Coins;
 using ITMarathon_Hackathon.Repositories.Coins;
+using ITMarathon_Hackathon.Interfaces.Coins;
 
 namespace ITMarathon_Hackathon
 {
@@ -19,13 +20,15 @@ namespace ITMarathon_Hackathon
             services.AddScoped<ILoginRepository, LoginRepository>();
             services.AddScoped<IResetPasswordRepository, ResetPasswordRepository>();
             services.AddScoped<IRegisterRepository, RegisterRepository>();
+            services.AddScoped<IAddUserFundsRepository, AddUserFundsRepository>();
 
             //TRANSACTION
             services.AddScoped<IMakeTransactionRepository, MakeTransactionRepository>();
             services.AddScoped<IGetTransactionCommissionRepository, GetTransactionCommissionRepository>();
 
-            //COINS
+            //COIN
             services.AddScoped<IUserCoinsRepository, UserCoinsRepository>();
+            services.AddScoped<IGetCoinsRepository, GetCoinsRepository>();
 
             return services;
         }

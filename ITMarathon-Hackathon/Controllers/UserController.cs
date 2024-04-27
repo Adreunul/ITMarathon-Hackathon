@@ -9,14 +9,17 @@ namespace ITMarathon_Hackathon.Controllers
         private readonly ILoginRepository _loginRepository;
         private readonly IResetPasswordRepository _resetPasswordRepository;
         private readonly IRegisterRepository _registerRepository;
-        
+        private readonly IAddUserFundsRepository _addUserFundsRepository;
+
         public UserController(ILoginRepository loginRepository,
             IRegisterRepository registerRepository,
-            IResetPasswordRepository resetPasswordRepository)
+            IResetPasswordRepository resetPasswordRepository,
+            IAddUserFundsRepository addUserFundsRepository)
         {
             _loginRepository = loginRepository;
             _registerRepository = registerRepository;
             _resetPasswordRepository = resetPasswordRepository;
+            _addUserFundsRepository = addUserFundsRepository;
         }
 
         [HttpPost]
@@ -54,6 +57,18 @@ namespace ITMarathon_Hackathon.Controllers
                 if (userId == -2)
                 return BadRequest("Password or safeword should not match the old ones.");
             return BadRequest("User not found or safeword is incorrect");
+        }
+
+        [HttpPost]
+        [Route("AddUserFunds")]
+        public async Task<IActionResult> AddUserFundsAsync([FromBody] AddUserFundsDTO addUserFundsDTO)
+        {
+            var result = await _addUserFundsRepository.AddUserFundsAsyncRepo(addUserFundsDTO);
+
+            if (result > 0)
+                return Ok(result);
+            else
+                return BadRequest("Adding funds failed");
         }
     }
 }

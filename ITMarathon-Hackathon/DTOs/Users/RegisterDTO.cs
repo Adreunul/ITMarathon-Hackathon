@@ -7,6 +7,5 @@
         public string safeword { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
-        public float sold { get; set; }
     }
 }

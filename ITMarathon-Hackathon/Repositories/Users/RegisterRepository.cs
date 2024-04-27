@@ -30,7 +30,6 @@ namespace ITMarathon_Hackathon.Repositories.Users
 
             parameters.Add("@firstname", registerDTO.firstname);
             parameters.Add("@lastname", registerDTO.lastname);
-            parameters.Add("@sold", registerDTO.sold);
 
             parameters.Add("@IdUser", dbType: DbType.Int32, direction: ParameterDirection.Output);
             using (var connection = _dbConnectionFactory.ConnectToDataBase())
