@@ -1,11 +1,12 @@
 ﻿using Dapper;
 using ITMarathon_Hackathon.DTOs.Users;
 using ITMarathon_Hackathon.Interfaces;
+using ITMarathon_Hackathon.Interfaces.Users;
 using System.Data;
 
 namespace ITMarathon_Hackathon.Repositories.Users
 {
-    public class GetUsersRepository
+    public class GetUsersRepository : IGetUsersRepository
     {
         private readonly IDbConnectionFactory _connectionFactory;
         public GetUsersRepository(IDbConnectionFactory connectionFactory)

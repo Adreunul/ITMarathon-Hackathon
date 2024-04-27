@@ -13,6 +13,7 @@ namespace ITMarathon_Hackathon.Controllers
         private readonly IAddUserFundsRepository _addUserFundsRepository;
         private readonly IGetUserSoldRepository _getUserSoldRepository;
         private readonly IGetUserSoldFromCoinsRepository _getUserSoldFromCoinsRepository;
+        private readonly IGetUsersRepository _getUsersRepository;
 
         public UserController(ILoginRepository loginRepository,
             IRegisterRepository registerRepository,
@@ -20,7 +21,8 @@ namespace ITMarathon_Hackathon.Controllers
             IAddUserFundsRepository addUserFundsRepository,
             IGetUserSoldRepository getUserSoldRepository,
             IGetUserSoldFromCoinsRepository getUserSoldFromCoinsRepository,
-            ILogOutRepository logOutRepository)
+            ILogOutRepository logOutRepository,
+            IGetUsersRepository getUsersRepository)
         {
             _loginRepository = loginRepository;
             _registerRepository = registerRepository;
@@ -29,6 +31,7 @@ namespace ITMarathon_Hackathon.Controllers
             _getUserSoldRepository = getUserSoldRepository;
             _getUserSoldFromCoinsRepository = getUserSoldFromCoinsRepository;
             _logOutRepository = logOutRepository;
+            _getUsersRepository = getUsersRepository;
         }
 
         [HttpPost]
@@ -113,6 +116,18 @@ namespace ITMarathon_Hackathon.Controllers
                 return Ok(sold);
             else
                 return BadRequest("Getting sold failed");
+        }
+
+        [HttpGet]
+        [Route("GetUsers")]
+        public async Task<IActionResult> GetUsersAsync()
+        {
+            var result = await _getUsersRepository.GetUsersAsyncRepo();
+
+            if (result != null)
+                return Ok(result);
+            else
+                return BadRequest("Getting users failed.");
         }
     }
 }

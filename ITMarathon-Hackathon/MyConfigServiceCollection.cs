@@ -26,6 +26,7 @@ namespace ITMarathon_Hackathon
             services.AddScoped<IAddUserFundsRepository, AddUserFundsRepository>();
             services.AddScoped<IGetUserSoldRepository, GetUserSoldRepository>();
             services.AddScoped<IGetUserSoldFromCoinsRepository, GetUserSoldFromCoinsRepository>();
+            services.AddScoped<IGetUsersRepository, GetUsersRepository>();
 
             //TRANSACTION
             services.AddScoped<IMakeTransactionRepository, MakeTransactionRepository>();
@@ -37,6 +38,7 @@ namespace ITMarathon_Hackathon
 
             //LOGS
             services.AddScoped<IGetLogsRepository, GetLogsRepository>();
+
 
             return services;
         }
